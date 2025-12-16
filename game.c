@@ -74,6 +74,10 @@ void apply_move(char game_board[][BOARD_SIZE], int row_location, int col_locatio
 {
     /* TODO: assume move is valid and place player's symbol */
     int is_valid = is_move_valid(game_board, row_location, col_location);
+    if (is_valid)
+    {
+        game_board[row_location][col_location] = 'X';
+    }
 }
 
 int is_board_full(args)
