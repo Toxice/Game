@@ -21,10 +21,6 @@ int is_board_full(char game_board[][BOARD_SIZE]);
 
 char check_winner(args);
 
-static int is_player_winner_rows(char game_board[BOARD_SIZE][BOARD_SIZE]);
-
-static int is_player_winner_coloums(char game_board[BOARD_SIZE][BOARD_SIZE]);
-
 /* Return:
    PLAYER_HUMAN, PLAYER_AI, 'D' for draw, or EMPTY if no winner yet */
 
