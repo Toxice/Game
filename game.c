@@ -54,7 +54,7 @@ void print_board(char board[BOARD_SIZE][BOARD_SIZE])
 
 /**
  * @brief check if our move is valid
- * @details before even placing our 'X', we need to check if the location we wish the place in is free, meaning - if its EMPTY
+ * @details before even placing our 'X', we verify the location we wish the place in is free, meaning - if its EMPTY
  */
 int is_move_valid(char game_board[][BOARD_SIZE], int row_location, int col_location)
 {
@@ -67,9 +67,13 @@ int is_move_valid(char game_board[][BOARD_SIZE], int row_location, int col_locat
     return 0; // FALSE
 }
 
-void apply_move(args)
+/**
+ * @brief set the player symbol at the desired locaation in the board
+ */
+void apply_move(char game_board[][BOARD_SIZE], int row_location, int col_location) 
 {
     /* TODO: assume move is valid and place player's symbol */
+    int is_valid = is_move_valid(game_board, row_location, col_location);
 }
 
 int is_board_full(args)
