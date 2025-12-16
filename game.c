@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include "game.h"
+#include <limits.h>
+
+char buffer[BOARD_SIZE] = {0};
 
 char game_board[BOARD_SIZE][BOARD_SIZE];
 
@@ -106,4 +109,118 @@ char check_winner(args)
        Return PLAYER_HUMAN / PLAYER_AI / 'D' / EMPTY.
        Note: main() handles draw via is_board_full(), so 'D' is optional.
     */
+}
+
+/**\
+ * @brief check for winn
+ */
+static int is_player_won_rows(char game_board[BOARD_SIZE][BOARD_SIZE]) 
+{
+    int row_verifier = INT_MAX;
+    for (int row = 0; row < BOARD_SIZE; row++)
+    {
+        row_verifier = check_row(row, game_board);
+        if (row_verifier != -1)
+        {
+            
+        }
+        
+    }
+    return -1;
+}
+
+/**
+ * @brief check if there is a winner at some row
+ * @details returns the number of the row if there is a winner, returns (-1) if there is'nt a winner
+ */
+static int check_row(int row, char[BOARD_SIZE][BOARD_SIZE])
+{
+    char buffer[BOARD_SIZE] = {0};
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        buffer[i] = game_board[row][i];
+    } 
+    if (!is_buffer_empty(buffer)) {
+        return row;
+    }
+    return -1;
+}
+
+/**
+ * @brief check if there is a winner at some row
+ * @details returns the number of the row if there is a winner, returns (-1) if there is'nt a winner
+ */
+static int check_coloumn(int column, char[BOARD_SIZE][BOARD_SIZE])
+{
+    char buffer[BOARD_SIZE] = {0};
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        buffer[i] = game_board[i][column];
+    } 
+    if (!is_buffer_empty(buffer)) {
+        return column;
+    }
+    return -1;
+}
+
+
+/**
+ * @brief verify the buffer is empty
+ */
+static int is_buffer_empty(char buffer[BOARD_SIZE])
+{
+    if (buffer == "   ") return 1;
+    return 0;
+}
+
+/**
+ * @brief sets the buffer to the characters in that row
+ */
+static void set_buffer_at_row(char buffer[BOARD_SIZE], int row, char game_board[BOARD_SIZE][BOARD_SIZE])
+{
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        buffer[i] = game_board[row][i];
+    }
+}
+
+/**
+ * @brief sets the buffer to the characters in that columnS
+ */
+static void set_buffer_at_coloum(char buffer[BOARD_SIZE], int column, char game_board[BOARD_SIZE][BOARD_SIZE])
+{
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        buffer[i] = game_board[i][column];
+    }
+}
+
+/**
+ * @brief checks if the player won
+ */
+static int is_player_won(char buffer[BOARD_SIZE])
+{
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        if (buffer[i] != PLAYER_HUMAN)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+/**
+ * @brief checks if the computer won
+ */
+static int is_AI_won(char buffer[BOARD_SIZE])
+{
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        if (buffer[i] != PLAYER_AI)
+        {
+            return 0;
+        }
+    }
+    return 1;
 }
