@@ -58,7 +58,6 @@ void print_board(char board[BOARD_SIZE][BOARD_SIZE])
  */
 int is_move_valid(char game_board[][BOARD_SIZE], int row_location, int col_location)
 {
-    /* TODO: check bounds and that cell is EMPTY */
     if (0 < row_location < BOARD_SIZE && 0 < col_location < BOARD_SIZE) {
         if (game_board[row_location][col_location] == EMPTY) 
         {

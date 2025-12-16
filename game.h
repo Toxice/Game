@@ -10,15 +10,15 @@
 /* Game;
 Replace args with the correct arguments*/
 void init_board(char board_game[BOARD_SIZE][BOARD_SIZE]);
+
 void print_board(char board[BOARD_SIZE][BOARD_SIZE]);
 
-/**
- * @brief checks if the location is empty (EMPTY)
- */
 int is_move_valid(char board_game[][], int row_location, int col_location);
+
 void apply_move(args);
 
 int is_board_full(args);
+
 char check_winner(args);
 
 /* Return:
