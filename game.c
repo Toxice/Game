@@ -224,3 +224,15 @@ static int is_AI_won(char buffer[BOARD_SIZE])
     }
     return 1;
 }
+
+static int whos_winner(char buffer[BOARD_SIZE])
+{
+    if (is_AI_won(buffer))
+    {
+        return 1;
+    } else if (is_player_won(buffer))
+    {
+        return -1;
+    }
+    
+}
