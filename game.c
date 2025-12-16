@@ -113,7 +113,7 @@ char check_winner(args)
  * @details return options:
  *              0 -> player won at row 0; 1 -> player won at row 1; 2 -> player won at row 2; (-1) -> player has'nt won at any row; 
  */
-int is_player_winner_rows(char game_board[BOARD_SIZE][BOARD_SIZE])
+static int is_player_winner_rows(char game_board[BOARD_SIZE][BOARD_SIZE])
 {
     int row, col;
     char player_buffer[BOARD_SIZE];
