@@ -69,6 +69,7 @@ int is_move_valid(char game_board[][BOARD_SIZE], int row_location, int col_locat
 
 /**
  * @brief set the player symbol at the desired locaation in the board
+ * @details after verifying the location is free, we insert our player's symbol (X in that case)
  */
 void apply_move(char game_board[][BOARD_SIZE], int row_location, int col_location) 
 {
