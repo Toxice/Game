@@ -81,9 +81,23 @@ void apply_move(char game_board[][BOARD_SIZE], int row_location, int col_locatio
     }
 }
 
-int is_board_full(args)
+
+/**
+ * @brief checks if the game board is full
+ * @details loop over the board, and check if the value is EMPTY, for the first cell who's empty -> break and return 0 (FALSE)
+ * if all cells are non EMPTY -> return 1
+ */
+int is_board_full(char game_board[][BOARD_SIZE])
 {
     /* TODO: return 1 if no EMPTY cells, else 0 */
+    for (int row = 0; row < BOARD_SIZE; row++)
+    {
+        for (int col = 0; col < BOARD_SIZE; col++)
+        {
+            if (game_board[row][col] == EMPTY) return 1;
+        }
+    }
+    return 0;
 }
 
 char check_winner(args)

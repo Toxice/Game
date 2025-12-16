@@ -17,7 +17,7 @@ int is_move_valid(char board_game[][], int row_location, int col_location);
 
 void apply_move(char game_board[][BOARD_SIZE], int row_location, int col_location);
 
-int is_board_full(args);
+int is_board_full(char game_board[][BOARD_SIZE]);
 
 char check_winner(args);
 
