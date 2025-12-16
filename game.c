@@ -107,3 +107,22 @@ char check_winner(args)
        Note: main() handles draw via is_board_full(), so 'D' is optional.
     */
 }
+
+/**
+ * @brief checks if the player won at one of the rows of the board
+ * @details return options:
+ *              0 -> player won at row 0; 1 -> player won at row 1; 2 -> player won at row 2; (-1) -> player has'nt won at any row; 
+ */
+int is_player_winner_rows(char game_board[BOARD_SIZE][BOARD_SIZE])
+{
+    int row, col;
+    char player_buffer[BOARD_SIZE];
+    for (row = 0; row < BOARD_SIZE; row++)
+    {
+        for (col = 0; col < BOARD_SIZE; col++)
+        {
+            player_buffer[col] = game_board[row][col];
+        } if (player_buffer == "XXX") return col;
+    }
+    return -1;
+}
