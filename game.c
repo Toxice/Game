@@ -111,7 +111,8 @@ char check_winner(args)
 /**
  * @brief checks if the player won at one of the rows of the board
  * @details return options:
- *              0 -> player won at row 0; 1 -> player won at row 1; 2 -> player won at row 2; (-1) -> player has'nt won at any row; 
+ *              0 -> player won at row 0; 1 -> player won at row 1; 2 -> player won at row 2;
+ *              (-1) -> player has'nt won at any row; 
  */
 static int is_player_winner_rows(char game_board[BOARD_SIZE][BOARD_SIZE])
 {
@@ -123,6 +124,26 @@ static int is_player_winner_rows(char game_board[BOARD_SIZE][BOARD_SIZE])
         {
             player_buffer[col] = game_board[row][col];
         } if (player_buffer == "XXX") return col;
+    }
+    return -1;
+}
+
+/**
+ * @brief checks if the player won at one of the coloums of the board
+ * @details return options:
+ *              0 -> player won at coloumn 0; 1 -> player won at coloumn 1; 2 -> player won at coloumn 2;
+ *              (-1) -> player has'nt won at any coloumn; 
+ */
+static int is_player_winner_coloumns(char game_board[BOARD_SIZE][BOARD_SIZE])
+{
+     int col, row;
+    char player_buffer[BOARD_SIZE];
+    for (col = 0; col < BOARD_SIZE; col++)
+    {
+        for (row = 0; row < BOARD_SIZE; row++)
+        {
+            player_buffer[row] = game_board[row][col];
+        } if (player_buffer == "XXX") return row;
     }
     return -1;
 }
